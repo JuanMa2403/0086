@@ -11,6 +11,7 @@
  * @author     Michael Kölling and David J. Barnes
  * @version    0.1 (2011.07.31)
  */
+import java.util.HashSet;
 public class SupportSystem
 {
     private InputReader reader;
@@ -37,18 +38,16 @@ public class SupportSystem
         printWelcome();
 
         while(!finished) {
-               String input = reader.getInput();   
-               input=input.toLowerCase();       
-               input=input.trim();
+              HashSet<String> entrada=reader.getInput();
           
                
-            if(input.equals("bye")) {               
+            if(entrada.contains("bye")) {               
                  
                     finished = true;        
                                
             }
             else {
-                String response = responder.generateResponse(input);
+                String response = responder.generateResponse(entrada);
                 System.out.println(response);
             }
         }

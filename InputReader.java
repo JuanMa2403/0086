@@ -1,6 +1,6 @@
 import java.util.HashSet;
 import java.util.Scanner;
-
+import java.util.HashSet;
 /**
  * InputReader reads typed text input from the standard text terminal. 
  * The text typed by a user is returned.
@@ -26,11 +26,23 @@ public class InputReader
      *
      * @return  A String typed by the user.
      */
-    public String getInput()
+    public HashSet<String> getInput()
     {
+        HashSet<String> palabras=new HashSet<String>();
+        System.out.print("> ");         // print prompt
+        String[] prueba=new String[0];
         System.out.print("> ");         // print prompt
         String inputLine = reader.nextLine();
+        prueba=inputLine.split(" ");
+        for(int i=0;i<prueba.length;i++)
+        {
+            palabras.add(inputLine);
+           
+        }
+        
+        
+        return        palabras ;
 
-        return inputLine;
+        
     }
 }

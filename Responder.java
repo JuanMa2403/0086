@@ -8,6 +8,8 @@
 import java.util.Random;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 public class Responder
 {
     private ArrayList<String> frases;
@@ -43,19 +45,18 @@ public class Responder
      * Generate a response.
      * @return   A string that should be displayed as the response
      */
-    public String generateResponse(String fraseClave)
+    public String generateResponse(HashSet<String> frasesClave)
     {
         String respuesta="";
+        Iterator<String> primeraPalabra=frasesClave.iterator();
+        String laEntrada=primeraPalabra.next();
+        respuesta=respuesta=respuestas.get(laEntrada);
         int alAzar=0;
-        if(respuestas.containsKey(fraseClave))
-        {
-            respuesta=respuestas.get(fraseClave);
-        }      
-        else
-        {
-            alAzar=aleatorio.nextInt(6);
+        if(respuesta==""){            
+            alAzar=aleatorio.nextInt(frases.size());
             respuesta=frases.get(alAzar);
-        }
+        }      
+       
 
         return  respuesta;
     }
