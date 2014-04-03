@@ -37,7 +37,7 @@ public class InputReader
         for(int i=0;i<prueba.length;i++)
         {
             palabras.add(inputLine);
-           
+           System.out.println(palabras.iterator().next());
         }
         
         

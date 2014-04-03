@@ -39,6 +39,7 @@ public class Responder
         respuestas.put("nombre","A1fred");
         respuestas.put("hablar","si... pero no quiero");
         respuestas.put("por que","No tengo que dar explicaciones");
+        
     }
 
     /**
@@ -49,14 +50,22 @@ public class Responder
     {
         String respuesta=null;
         Iterator<String> primeraPalabra=frasesClave.iterator();
-        String laEntrada=primeraPalabra.next();
-        respuesta=respuestas.get(laEntrada);
+        
+        
         int alAzar=0;
+        boolean contienePalabras=true;
+        while(primeraPalabra.hasNext() && contienePalabras)
+        {
+            respuesta=respuestas.get(primeraPalabra.next());
+            if(respuesta!=null){
+                contienePalabras=false;
+            }
+        }
+
         if(respuesta==null){            
             alAzar=aleatorio.nextInt(frases.size());
             respuesta=frases.get(alAzar);
         }      
-       
 
         return  respuesta;
     }
