@@ -47,12 +47,12 @@ public class Responder
      */
     public String generateResponse(HashSet<String> frasesClave)
     {
-        String respuesta="";
+        String respuesta=null;
         Iterator<String> primeraPalabra=frasesClave.iterator();
         String laEntrada=primeraPalabra.next();
-        respuesta=respuesta=respuestas.get(laEntrada);
+        respuesta=respuestas.get(laEntrada);
         int alAzar=0;
-        if(respuesta==""){            
+        if(respuesta==null){            
             alAzar=aleatorio.nextInt(frases.size());
             respuesta=frases.get(alAzar);
         }      
