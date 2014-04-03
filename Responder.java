@@ -14,14 +14,19 @@ public class Responder
 {
     private ArrayList<String> frases;
     private Random aleatorio;
-    private HashMap<String,String> respuestas;
+    private HashMap<HashSet<String>,String> respuestas;
+   
     /**
      * Construct a Responder - nothing to do
      */
 
     public Responder()
     {
-        respuestas=new HashMap<String,String>();
+        HashSet<String> conjunto1,conjunto2,conjunto3;
+        conjunto1=new HashSet<String>();
+        conjunto2=new HashSet<String>();
+        conjunto3=new HashSet<String>();
+        respuestas=new HashMap<HashSet<String>,String>();
         aleatorio=new Random();
         frases= new ArrayList<String>();
         frases.add("La respuesta es 42");
@@ -30,7 +35,19 @@ public class Responder
         frases.add("Colabora con la ORG: Que me den pa un piso");
         frases.add("Dos escarabajos entran en un bar...");
         frases.add("La ultima frase");
-        respuestas.put("hola","Hola, ¿Que tal?");
+        
+        conjunto1.add("eres");
+        conjunto1.add("tonto");
+        
+        conjunto2.add("hola");
+        conjunto2.add("nombre");
+        
+        conjunto3.add("puedes");
+        conjunto3.add("hablar");
+        respuestas.put(conjunto3,"si... pero no quiero");
+        respuestas.put(conjunto1,"no puedes herir mi ego");
+        respuestas.put(conjunto2,"no tengo nombre, llamame A1fred");
+       /** respuestas.put("hola","Hola, ¿Que tal?");
         respuestas.put("eres","Soy un sofware respondon");
         respuestas.put("llamas","no tengo nombre, llamame A1fred");
         respuestas.put("alfred","asi quiero que me llames");
@@ -39,7 +56,7 @@ public class Responder
         respuestas.put("nombre","A1fred");
         respuestas.put("hablar","si... pero no quiero");
         respuestas.put("por que","No tengo que dar explicaciones");
-        
+        */
     }
 
     /**
