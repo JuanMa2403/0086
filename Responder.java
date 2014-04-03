@@ -15,14 +15,16 @@ public class Responder
     private ArrayList<String> frases;
     private Random aleatorio;
     private HashMap<HashSet<String>,String> respuestas;
-   
+        HashSet<String> conjunto1;
+        HashSet<String> conjunto2;
+        HashSet<String> conjunto3;
     /**
      * Construct a Responder - nothing to do
      */
 
     public Responder()
     {
-        HashSet<String> conjunto1,conjunto2,conjunto3;
+       
         conjunto1=new HashSet<String>();
         conjunto2=new HashSet<String>();
         conjunto3=new HashSet<String>();
@@ -66,19 +68,9 @@ public class Responder
     public String generateResponse(HashSet<String> frasesClave)
     {
         String respuesta=null;
-        Iterator<String> primeraPalabra=frasesClave.iterator();
-        
-        
-        int alAzar=0;
-        boolean contienePalabras=true;
-        while(primeraPalabra.hasNext() && contienePalabras)
-        {
-            respuesta=respuestas.get(primeraPalabra.next());
-            if(respuesta!=null){
-                contienePalabras=false;
-            }
-        }
-
+         int alAzar=0;  
+         
+        respuesta=respuestas.get(frasesClave);
         if(respuesta==null){            
             alAzar=aleatorio.nextInt(frases.size());
             respuesta=frases.get(alAzar);

@@ -29,15 +29,14 @@ public class InputReader
     public HashSet<String> getInput()
     {
         HashSet<String> palabras=new HashSet<String>();
-        System.out.print("> ");         // print prompt
-        String[] prueba=new String[0];
-        System.out.print("> ");         // print prompt
+        System.out.print("> ");  
         String inputLine = reader.nextLine();
+        String[] prueba;          
         prueba=inputLine.split(" ");
         for(int i=0;i<prueba.length;i++)
         {
-            palabras.add(inputLine);
-           System.out.println(palabras.iterator().next());
+            palabras.add(prueba[i]);
+           
         }
         
         
