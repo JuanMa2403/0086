@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Collections;
 public class Responder
 {
     private ArrayList<String> frases;
@@ -18,6 +19,7 @@ public class Responder
         HashSet<String> conjunto1;
         HashSet<String> conjunto2;
         HashSet<String> conjunto3;
+        int alAzar=0;
     /**
      * Construct a Responder - nothing to do
      */
@@ -37,7 +39,7 @@ public class Responder
         frases.add("Colabora con la ORG: Que me den pa un piso");
         frases.add("Dos escarabajos entran en un bar...");
         frases.add("La ultima frase");
-        
+        Collections.shuffle(frases); 
         conjunto1.add("eres");
         conjunto1.add("tonto");
         
@@ -68,13 +70,19 @@ public class Responder
     public String generateResponse(HashSet<String> frasesClave)
     {
         String respuesta=null;
-         int alAzar=0;  
+          
          
         respuesta=respuestas.get(frasesClave);
-        if(respuesta==null){            
-            alAzar=aleatorio.nextInt(frases.size());
+        if(respuesta==null && alAzar<frases.size()){
+           
+            //alAzar=aleatorio.nextInt(frases.size());
             respuesta=frases.get(alAzar);
-        }      
+            alAzar++;
+            
+        }
+        if(alAzar>=frases.size()){
+            respuesta="No estiendo lo que dices";
+        }
 
         return  respuesta;
     }
